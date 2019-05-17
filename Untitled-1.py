@@ -21,4 +21,24 @@ def LeftRotateString( s, n):
         res=res+i
     return res
 
-print(LeftRotateString('abcdefg',2))
+# print(LeftRotateString('abcdefg',2))
+
+def PrintMinNumber(numbers):
+    # write code here
+    if numbers = []:
+        return ""
+    string_num = [str(num) for num in numbers]
+    for i in range(len(string_num)-1):
+        for j in range(len(string_num)-1):
+            AB = int(string_num[j]+string_num[j+1])
+            BA = int(string_num[j+1]+string_num[j])
+            if BA < AB:
+                temp = string_num[j]
+                string_num[j] = string_num[j+1]
+                string_num[j+1] = temp
+    res = ''
+    for i in string_num:
+        res = res + i
+    return int(res)
+
+print(PrintMinNumber([]))
