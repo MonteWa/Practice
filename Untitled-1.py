@@ -25,7 +25,7 @@ def LeftRotateString( s, n):
 
 def PrintMinNumber(numbers):
     # write code here
-    if numbers = []:
+    if numbers == []:
         return ""
     string_num = [str(num) for num in numbers]
     for i in range(len(string_num)-1):
@@ -41,4 +41,26 @@ def PrintMinNumber(numbers):
         res = res + i
     return int(res)
 
-print(PrintMinNumber([]))
+# print(PrintMinNumber([]))
+
+# -*- coding:utf-8 -*-
+class Solution:
+    def help(self, sequence):
+        if len(sequence) < 3:
+            return True
+        i = 0
+        while sequence[-1] > sequence[i]:
+            i = i+1
+        left = sequence[:i]
+        right = sequence[i:-1]
+        res = True
+        for i in right:
+            res = res and sequence[-1]<i
+        return res and self.help(left) and self.help(right)
+        
+    def VerifySquenceOfBST(self, sequence):
+        # write code here
+        return self.help(sequence)
+
+sol = Solution()
+print(sol.VerifySquenceOfBST([4,8,6,12,16,14,10]))
